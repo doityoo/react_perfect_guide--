@@ -11,6 +11,14 @@ const AddUser = props => {
   const addUserHandler = e => {
     e.preventDefault();
     console.log(enteredUserName, enteredAge)
+    if (enteredUserName.length === 0) {
+      alert("Username을 입력해 주세요");
+      return;
+    }
+    if (!enteredAge) {
+      alert("Age을 입력해 주세요");
+      return;
+    }
     setEnteredUsername("");
     setEnteredAge("");
   }
