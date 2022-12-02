@@ -1,12 +1,19 @@
-import React from'react';
+import React from 'react';
+import Card from '../UI/Card';
 
-// map으로 현재 리스트를 추가
-// 
 const AddUserList = props => {
   return (
-    <li>
-      <ul></ul>
-    </li>
+    <Card>
+      <ul>
+        {props.users.map(user => {
+          return (
+            <li key={Math.random()}>
+              {user.name} ({user.age} years old)
+            </li>
+          )
+        })}
+      </ul>
+    </Card>
   )
 }
 

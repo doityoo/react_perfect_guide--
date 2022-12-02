@@ -10,17 +10,24 @@ const AddUser = props => {
 
   const addUserHandler = e => {
     e.preventDefault();
-    console.log(enteredUserName, enteredAge)
-    if (enteredUserName.length === 0) {
+    if (enteredUserName.trim().length === 0) {
       alert("Username을 입력해 주세요");
       return;
     }
-    if (!enteredAge) {
+    if (enteredAge.trim().length === 0) {
       alert("Age을 입력해 주세요");
       return;
     }
+    // +는 문자열을 숫자로 바꾼다. age state를 문자열로 받고 있기 때문
+    if (+enteredAge < 1) {
+      alert("age가 0보다 커야 합니다");
+      return;
+    }
+    // console.log(enteredUserName, enteredAge)
+    props.onAddUser(enteredUserName, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
+    
   }
 
   const changeUsernameHandler = e => {
@@ -39,7 +46,8 @@ const AddUser = props => {
           id="username"
           type="text"
           value={enteredUserName}
-          onChange={changeUsernameHandler} />
+          onChange={changeUsernameHandler}
+        />
         <label htmlFor="age">Age(Years)</label>
         <input
           id="age"

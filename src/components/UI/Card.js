@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CardFormat = styled.div`
   padding: 20px 0;
-  margin: 0 auto;
+  margin: 30px auto;
   width: 70%;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -40,6 +40,17 @@ const CardFormat = styled.div`
   & input:focus {
     outline: none;
     border-color: black;
+  }
+
+  & ul {
+    list-style: none;
+    padding: 1rem;
+  }
+
+  & li {
+    border: 1px solid #ccc;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
   }
 `
 
