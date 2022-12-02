@@ -1,12 +1,13 @@
 import React from "react";
 import Card from "../UI/Card"
 import Button from "../UI/Button"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 
 const AddUser = props => {
   const [enteredUserName, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
+  const inputCursor = useRef();
 
   const addUserHandler = e => {
     e.preventDefault();
@@ -27,7 +28,8 @@ const AddUser = props => {
     props.onAddUser(enteredUserName, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
-    
+    inputCursor.current.focus();
+
   }
 
   const changeUsernameHandler = e => {
@@ -47,6 +49,7 @@ const AddUser = props => {
           type="text"
           value={enteredUserName}
           onChange={changeUsernameHandler}
+          ref={inputCursor}
         />
         <label htmlFor="age">Age(Years)</label>
         <input
