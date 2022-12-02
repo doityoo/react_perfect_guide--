@@ -18,7 +18,7 @@ const UserButton = styled.button`
 
 const Button = props => {
   return (
-      <UserButton type="button">{props.children}</UserButton>
+      <UserButton>{props.children}</UserButton>
   )
 }
 
