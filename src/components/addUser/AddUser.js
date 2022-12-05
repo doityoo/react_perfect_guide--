@@ -9,20 +9,25 @@ const AddUser = props => {
   const [enteredUserName, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const inputCursor = useRef();
+  // error useState()의 초깃값에 {}빈객체가 들어가면 화면 맨 앞에 고정됨
+  const [error, setError] = useState();
 
   const addUserHandler = e => {
     e.preventDefault();
     if (enteredUserName.trim().length === 0) {
-      alert("Username을 입력해 주세요");
+      // alert("Username을 입력해 주세요");
+      setError({ title: "Username Error", message: "Username을 입력해 주세요" });
       return;
     }
     if (enteredAge.trim().length === 0) {
-      alert("Age을 입력해 주세요");
+      // alert("Age을 입력해 주세요");
+      setError({ title: "Age Error", message: "Age을 입력해 주세요" });
       return;
     }
     // +는 문자열을 숫자로 바꾼다. age state를 문자열로 받고 있기 때문
     if (+enteredAge < 1) {
-      alert("age가 0보다 커야 합니다");
+      // alert("age가 0보다 커야 합니다");
+      setError({ title: "Age Error", message: "Age가 0보다  커야합니다" });
       return;
     }
     // console.log(enteredUserName, enteredAge)
@@ -43,8 +48,8 @@ const AddUser = props => {
 
   return (
     <div>
-      {/* <ErrorModal title="An error occured!" contents="Something went wrong!" />  */}
-      <Card>
+      {error && <ErrorModal title={error.title} message={error.message} />}
+      <Card padding={1}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
           <input

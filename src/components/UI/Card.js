@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 
 const CardFormat = styled.div`
-  padding: 20px 0;
+  /* padding: 1rem 0; */
+  padding: ${props => props.padding + "rem" || 0};
   margin: 30px auto;
   width: 70%;
   background: white;
@@ -54,9 +55,10 @@ const CardFormat = styled.div`
   }
 `
 
-const Card = props => {
+const Card = (props) => {
   return (
-    <CardFormat>{props.children}</CardFormat>
+    // props 넘겨주는 이름 잘 확인해 볼것!
+    <CardFormat padding={props.padding}>{props.children}</CardFormat>
   )
 }
 

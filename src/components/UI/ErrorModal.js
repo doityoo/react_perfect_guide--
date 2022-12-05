@@ -13,7 +13,7 @@ const ErrorModal = props => {
           </header>
           <div>
             <p>
-              {props.contents}
+              {props.message}
             </p>
           </div>
           <footer>
@@ -46,10 +46,14 @@ const Modal = styled.div`
   width: 80%;
   z-index: 100;
   overflow: hidden;
-
+  
   & header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     background: #4f005f;
     padding: 1rem;
+    position: relative;
+
   }
 
   & h2 {
