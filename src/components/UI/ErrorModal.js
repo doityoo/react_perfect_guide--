@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const ErrorModal = props => {
   return (
-    <BackDrop>
+    <BackDrop onClick={props.onHandlerError}>
       <Modal>
         <Card>
           <header>
@@ -17,9 +17,9 @@ const ErrorModal = props => {
             </p>
           </div>
           <footer>
-            <Button>닫기</Button>
+            <Button onClick={props.onHandlerError}>닫기</Button>
           </footer>
-        </Card>
+        </Card> 
       </Modal>
     </BackDrop>
   )

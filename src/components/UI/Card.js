@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const CardFormat = styled.div`
   /* padding: 1rem 0; */
-  padding: ${props => props.padding + "rem" || 0};
+  padding-top: ${props => props.padding || 0};
+  padding-bottom: ${props => props.padding || 0};
   margin: 30px auto;
   width: 70%;
   background: white;

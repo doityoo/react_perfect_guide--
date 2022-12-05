@@ -18,8 +18,8 @@ const UserButton = styled.button`
 
 const Button = props => {
   return (
-      <UserButton>{props.children}</UserButton>
+      <UserButton onClick={props.onClick}>{props.children}</UserButton>
   )
-}
+} 
 
 export default Button;
